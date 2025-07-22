@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podofam | Soluciones Profesionales para la Salud de tus Pies</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome (Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS (Animate on Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* CORRECCIÓN #1: Estilo del Checkbox personalizado */
+        .checkbox-custom-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .checkbox-visual {
+            width: 1.5em;
+            height: 1.5em;
+            border: 2px solid #d1d5db; /* gray-300 */
+            border-radius: 0.25rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .checkbox-visual .fa-check {
+            display: none; /* Oculto por defecto */
+            color: white;
+            font-size: 0.8em;
+        }
+        input[type="checkbox"]:checked ~ .checkbox-visual {
+            background-color: #2563eb; /* blue-600 */
+            border-color: #2563eb;
+        }
+        input[type="checkbox"]:checked ~ .checkbox-visual .fa-check {
+            display: block; /* Visible cuando está marcado */
+        }
+        /* Oculta el checkbox nativo pero mantiene su funcionalidad */
+        input[type="checkbox"].native-checkbox {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        #toast-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- HEADER STICKY -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 shadow-sm">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-700">PODOFAM</h1>
+            <a href="#sistemas" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-700 transition duration-300 hidden md:inline-block">
+                Ver Sistemas
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="bg-white pt-16 pb-24 text-center">
+        <div class="container mx-auto px-6" data-aos="fade-up">
+            <h2 class="text-4xl md:text-6xl font-bold leading-tight mb-4">¿Te da pena mostrar tus pies?</h2>
+            <p class="text-lg md:text-xl mb-6 max-w-3xl mx-auto text-gray-600">Recuperá tu confianza con soluciones respaldadas que sí funcionan. Fórmulas con estándares clínicos, creadas para transformar la salud de tus pies.</p>
+            <p class="text-md md:text-lg mb-8 max-w-2xl mx-auto font-semibold">Hongos, mal olor, talones agrietados… No los escondás más. Empezá un cuidado real.</p>
+            <a href="#sistemas" class="bg-blue-700 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-800 transition duration-300 text-lg">
+                Elegí tu Solución
+            </a>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+                <h3 class="text-3xl md:text-4xl font-bold">El problema que muchos esconden, pero todos sienten</h3>
+                <p class="text-gray-600 mt-4">Seguramente ya probaste con productos del supermercado, pedicure estéticos o esmaltes. Pero por más que los escondas, los problemas siguen ahí… o empeoran:</p>
+            </div>
+            <div class="max-w-2xl mx-auto mt-12 space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-start space-x-4"><i class="fas fa-times-circle text-red-500 text-xl mt-1"></i><p><strong class="font-semibold">Uñas amarillas, engrosadas o quebradizas:</strong> El síntoma más visible y difícil de ocultar.</p></div>
+                <div class="flex items-start space-x-4"><i class="fas fa-times-circle text-red-500 text-xl mt-1"></i><p><strong class="font-semibold">Mal olor persistente:</strong> Regresa a pesar del desodorante y el lavado constante.</p></div>
+                <div class="flex items-start space-x-4"><i class="fas fa-times-circle text-red-500 text-xl mt-1"></i><p><strong class="font-semibold">Talones con grietas:</strong> No solo es estético, duelen al caminar y pueden infectarse.</p></div>
+                <div class="flex items-start space-x-4"><i class="fas fa-times-circle text-red-500 text-xl mt-1"></i><p><strong class="font-semibold">Inseguridad constante:</strong> Evitas usar sandalias o andar descalzo para que nadie vea tus pies.</p></div>
+            </div>
+             <p class="text-center font-semibold text-lg mt-12" data-aos="fade-up">No es solo un tema estético. Es tu salud, tu seguridad y tu bienestar diario.</p>
+        </div>
+    </section>
+
+    <!-- AUTHORITY SECTION -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h3 class="text-3xl md:text-4xl font-bold">¿Por qué Podofam?</h3>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-blue-600 text-4xl mb-4"><i class="fas fa-vial"></i></div>
+                    <h4 class="font-bold text-xl mb-2">Estándares Clínicos</h4>
+                    <p class="text-gray-600">Productos fabricados con estándares clínicos de calidad para máxima seguridad y eficacia.</p>
+                </div>
+                <div class="p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-blue-600 text-4xl mb-4"><i class="fas fa-user-md"></i></div>
+                    <h4 class="font-bold text-xl mb-2">Fórmulas de Expertos</h4>
+                    <p class="text-gray-600">Desarrolladas por especialistas en la salud del pie, pensando en tus necesidades.</p>
+                </div>
+                <div class="p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-blue-600 text-4xl mb-4"><i class="fas fa-headset"></i></div>
+                    <h4 class="font-bold text-xl mb-2">Acompañamiento Real</h4>
+                    <p class="text-gray-600">Te asesoramos antes, durante y después de tu compra. No te dejamos solo.</p>
+                </div>
+                <div class="p-8 bg-blue-50 border-2 border-blue-200 rounded-lg" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-blue-600 text-4xl mb-4"><i class="fas fa-award"></i></div>
+                    <h4 class="font-bold text-xl mb-2">Recomendados por +500</h4>
+                    <p class="text-gray-600">Más de 500 profesionales en Costa Rica, Panamá y Nicaragua confían en nosotros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="sistemas" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h3 class="text-3xl md:text-4xl font-bold">¡Elegí el sistema que tus pies y uñas necesitan!</h3>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
+                <!-- PRODUCT CARD 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 has-[:checked]:ring-2 has-[:checked]:ring-blue-500" data-aos="fade-up">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-2xl font-bold">Sistema Antifúngico Total</h4>
+                            <label class="checkbox-custom-label">
+                                <input type="checkbox" class="native-checkbox product-checkbox" data-product-name="Sistema Antifúngico Total">
+                                <span class="checkbox-visual"><i class="fas fa-check"></i></span>
+                            </label>
+                        </div>
+                        <!-- REEMPLAZAR IMAGEN -->
+                        <img src="https://via.placeholder.com/600x400/E0E7FF/1E3A8A?text=Kit+Antifúngico" alt="Sistema Antifúngico Total" class="rounded-lg mb-4 w-full">
+                        <p class="text-gray-600 mb-4">¿Tenés hongos en las uñas o en la piel de tus pies? Este sistema combate el problema desde la raíz con fórmulas clínicas y resultados reales.</p>
+                        
+                        <!-- Accordion for details -->
+                        <div class="accordion-item space-y-2">
+                             <button class="accordion-button w-full text-left font-semibold text-blue-700 p-2 hover:bg-gray-100 rounded flex justify-between items-center"><span>Ver Detalles</span><i class="fas fa-chevron-down transition-transform"></i></button>
+                             <div class="accordion-content hidden p-4 bg-gray-50 rounded-lg space-y-4">
+                                <div><strong class="font-semibold block">Incluye:</strong><ul class="list-disc list-inside text-gray-600"><li>Espuma limpiadora antifúngica</li><li>Spray antimicótico para piel y uñas</li><li>Desodorante clínico antifúngico</li></ul></div>
+                                <div><strong class="font-semibold block">Ideal para:</strong><ul class="list-disc list-inside text-gray-600"><li>Uñas engrosadas o manchadas por hongos</li><li>Pie de atleta (piel escamada)</li><li>Mal olor crónico</li></ul></div>
+                                <div><strong class="font-semibold block">Beneficios:</strong><ul class="list-disc list-inside text-gray-600"><li>Elimina el hongo desde el origen</li><li>Previene la reaparición</li><li>Formulación para piel sensible</li></ul></div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT CARD 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 has-[:checked]:ring-2 has-[:checked]:ring-blue-500" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-2xl font-bold">Sistema Hidratación Profunda</h4>
+                            <label class="checkbox-custom-label">
+                                <input type="checkbox" class="native-checkbox product-checkbox" data-product-name="Sistema Hidratación Profunda">
+                                <span class="checkbox-visual"><i class="fas fa-check"></i></span>
+                            </label>
+                        </div>
+                        <!-- REEMPLAZAR IMAGEN -->
+                        <img src="https://via.placeholder.com/600x400/D1FAE5/047857?text=Kit+Hidratación" alt="Sistema Hidratación Profunda" class="rounded-lg mb-4 w-full">
+                        <p class="text-gray-600 mb-4">¿Sentís la piel seca, con callosidades o agrietada? Este sistema devuelve la suavidad, belleza y salud a tus pies con hidratación profesional.</p>
+
+                         <!-- Accordion for details -->
+                        <div class="accordion-item space-y-2">
+                             <button class="accordion-button w-full text-left font-semibold text-blue-700 p-2 hover:bg-gray-100 rounded flex justify-between items-center"><span>Ver Detalles</span><i class="fas fa-chevron-down transition-transform"></i></button>
+                             <div class="accordion-content hidden p-4 bg-gray-50 rounded-lg space-y-4">
+                                <div><strong class="font-semibold block">Incluye:</strong><ul class="list-disc list-inside text-gray-600"><li>Espuma limpiadora hidratante</li><li>Exfoliante para callosidades</li><li>Crema ultra hidratante intensiva</li></ul></div>
+                                <div><strong class="font-semibold block">Ideal para:</strong><ul class="list-disc list-inside text-gray-600"><li>Talones partidos o con fisuras</li><li>Piel engrosada y áspera</li><li>Pies deshidratados por fricción</li></ul></div>
+                                <div><strong class="font-semibold block">Beneficios:</strong><ul class="list-disc list-inside text-gray-600"><li>Restaura la hidratación profunda</li><li>Previene nuevas grietas</li><li>Pies suaves, lisos y saludables</li></ul></div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC WHATSAPP CTA BAR -->
+    <!-- CORRECCIÓN #2: Se ajustó el ancho del botón para escritorio -->
+    <div class="sticky bottom-0 z-30 bg-white/90 backdrop-blur-sm shadow-[0_-4px_10px_-1px_rgba(0,0,0,0.1)] p-4">
+        <div class="container mx-auto flex justify-center lg:justify-end">
+            <a id="whatsapp-cta-button" href="#" target="_blank" class="w-full lg:w-auto lg:px-12 block bg-green-500 text-white font-bold py-4 px-8 rounded-full text-center text-lg transition duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed">
+                <i class="fab fa-whatsapp"></i> <span id="whatsapp-cta-text">Elegí un sistema para consultar</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- FAQ SECTION -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h3 class="text-3xl md:text-4xl font-bold">Resolvemos tus dudas</h3>
+            </div>
+            <div class="space-y-4" id="faq-container" data-aos="fade-up">
+                <!-- FAQ Items will be injected here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="py-20 bg-blue-700 text-white">
+        <div class="container mx-auto px-6 text-center" data-aos="zoom-in">
+            <h3 class="text-3xl md:text-5xl font-bold mb-4">Ya no tenés que disimular.</h3>
+            <p class="text-lg text-blue-200 mb-8 max-w-3xl mx-auto">Transformá tus pies con fórmulas con estándares clínicos y acompañamiento profesional. Tu salud, tu seguridad y tu belleza también empiezan desde abajo.</p>
+            <a href="#sistemas" class="bg-white text-blue-700 font-bold py-4 px-10 rounded-full hover:bg-gray-200 transition duration-300 text-xl shadow-lg">
+                <i class="fas fa-check-circle"></i> Elegí tu sistema ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2024 Podofam Costa Rica. Todos los derechos reservados.</p>
+            <p class="text-sm mt-2">Una solución creada por expertos en salud del pie.</p>
+        </div>
+    </footer>
+
+    <div id="toast-notification" class="fixed top-5 right-5 bg-red-500 text-white py-3 px-5 rounded-lg shadow-xl opacity-0 transform -translate-y-5 transition-all duration-300 z-50">
+        <i class="fas fa-exclamation-circle mr-2"></i>
+        <span>Por favor, elegí al menos un sistema.</span>
+    </div>
+
+
+    <!-- JAVASCRIPT LIBRARIES & LOGIC -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS (Animate on Scroll) Initialization
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+
+        // ACCORDION LOGIC (For Product Cards and FAQs)
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionContent = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                accordionContent.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // FAQ Data and Injection
+        const faqData = [
+            { q: '¿Qué tan rápido se ven los resultados?', a: 'Muchas personas comienzan a notar mejoras visibles desde la primera semana. La constancia es clave para lograr resultados duraderos.' },
+            { q: '¿Cuánto tiempo duran los productos de cada sistema?', a: 'Cada sistema está diseñado para brindarte tratamiento durante 90 días de uso diario, tiempo ideal para obtener resultados duraderos.' },
+            { q: '¿Puedo usar los productos si tengo diabetes o piel sensible?', a: 'Sí. Nuestras fórmulas están diseñadas con estándares clínicos y son seguras para piel sensible. Si vivís con diabetes, siempre es ideal acompañar el tratamiento con asesoría profesional.' },
+            { q: '¿Puedo comprar solo un producto del sistema?', a: 'Sí, pero recomendamos el sistema completo para mejores resultados. Si no estás seguro, podés recibir asesoría personalizada para que elijas lo más adecuado según tu caso.' },
+            { q: '¿Cómo puedo hacer el pedido?', a: 'Muy fácil: hacé clic en el botón de WhatsApp, elegí tu sistema o contanos tu caso y uno de nuestros asesores te guiará paso a paso para realizar tu compra y el envío inmediato.' },
+            { q: '¿El envío es gratuito?', a: 'Sí, el envío es gratuito en todo Costa Rica. Consulta por nuestras tarifas en Panamá y Nicaragua.' },
+            { q: '¿Puedo pagar cuando me entregan el pedido?', a: 'Sí. Tenemos opción de pago contra entrega en Costa Rica (efectivo o Sinpe Móvil) en la mayoría de zonas. También podés pagar en línea si lo preferís.' },
+            { q: '¿Cuánto tarda en llegar mi pedido?', a: 'En la mayoría de zonas se entrega en un plazo de 1 a 3 días hábiles. Te informamos el tiempo estimado al hacer el pedido.' },
+        ];
+        
+        const faqContainer = document.getElementById('faq-container');
+        faqData.forEach(item => {
+            const faqItem = document.createElement('div');
+            faqItem.className = 'border rounded-lg overflow-hidden accordion-item';
+            faqItem.innerHTML = `
+                <button class="accordion-button w-full text-left p-4 bg-gray-100 hover:bg-gray-200 transition focus:outline-none flex justify-between items-center">
+                    <span class="font-semibold">${item.q}</span>
+                    <i class="fas fa-chevron-down transition-transform"></i>
+                </button>
+                <div class="accordion-content hidden p-4 bg-white">
+                    <p class="text-gray-600">${item.a}</p>
+                </div>
+            `;
+            faqContainer.appendChild(faqItem);
+            faqItem.querySelector('.accordion-button').addEventListener('click', (e) => {
+                 const button = e.currentTarget;
+                 const content = button.nextElementSibling;
+                 const icon = button.querySelector('i');
+                 content.classList.toggle('hidden');
+                 icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // DYNAMIC WHATSAPP BUTTON LOGIC
+        const checkboxes = document.querySelectorAll('.product-checkbox');
+        const ctaButton = document.getElementById('whatsapp-cta-button');
+        const ctaText = document.getElementById('whatsapp-cta-text');
+        const toastNotification = document.getElementById('toast-notification');
+        // IMPORTANTE: Reemplaza 'TUNUMERO' con el número de WhatsApp del cliente (incluyendo código de país, sin '+' ni espacios)
+        const baseWhatsAppURL = 'https://wa.me/393517566649'; 
+
+        function updateWhatsAppButton() {
+            const selectedProducts = [];
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    selectedProducts.push(checkbox.dataset.productName);
+                }
+            });
+
+            if (selectedProducts.length === 0) {
+                ctaText.textContent = 'Elegí un sistema para consultar';
+                ctaButton.setAttribute('disabled', true);
+                ctaButton.href = '#';
+            } else {
+                ctaButton.removeAttribute('disabled');
+                let buttonText = `Consultar por ${selectedProducts.length} sistema`;
+                if (selectedProducts.length > 1) {
+                    buttonText += 's';
+                }
+                ctaText.textContent = buttonText;
+
+                const messageIntro = '¡Hola Podofam! 👋 Me interesa conocer más sobre las siguientes soluciones que he visto en la web:\n\n';
+                const productList = selectedProducts.map(p => `• ${p}`).join('\n');
+                const messageOutro = '\n\n¿Podrían orientarme sobre cuál sería el mejor punto de partida para mi caso? ¡Gracias!';
+                const finalMessage = messageIntro + productList + messageOutro;
+                
+                ctaButton.href = `${baseWhatsAppURL}?text=${encodeURIComponent(finalMessage)}`;
+            }
+        }
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateWhatsAppButton);
+        });
+
+        ctaButton.addEventListener('click', function(event) {
+            if (ctaButton.hasAttribute('disabled')) {
+                event.preventDefault(); // Previene cualquier acción por defecto
+                
+                // Muestra la notificación toast
+                toastNotification.classList.add('show');
+                
+                // Oculta la notificación después de 3 segundos
+                setTimeout(() => {
+                    toastNotification.classList.remove('show');
+                }, 3000);
+            }
+        });
+
+
+        // Initial state
+        updateWhatsAppButton();
+
+    </script>
+</body>
+</html>
